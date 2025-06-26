@@ -15,7 +15,7 @@ Aplicación web ligera que te permite obtener tu código QR de acceso a VivaGym 
 
 1. Clona el repositorio:
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/AbelFalcon/VivaGymQR
 cd VivaGymQR/v2
 ```
 
