@@ -1,0 +1,29 @@
+{
+  "name": "vivagymqr-v2",
+  "version": "1.0.0",
+  "description": "VivaGym QR",
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:client\"",
+    "dev:backend": "cd backend && pnpm run dev",
+    "dev:client": "cd client && pnpm run dev",
+    "start": "concurrently \"pnpm run start:backend\" \"pnpm run start:client\"",
+    "start:backend": "cd backend && pnpm start",
+    "start:client": "cd client && pnpm run build && pnpm run preview",
+    "install:all": "pnpm install && cd backend && pnpm install && cd ../client && pnpm install",
+    "build": "cd client && pnpm run build",
+    "build:backend": "cd backend && pnpm run build",
+    "clean": "rm -rf node_modules backend/node_modules client/node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "gym",
+    "qr",
+    "fullstack",
+    "nodejs",
+    "react"
+  ],
+  "author": "Abel",
+  "license": "MIT"
+}
