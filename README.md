@@ -1,8 +1,6 @@
-![imagen](https://github.com/user-attachments/assets/1645ba84-056c-4384-8dc8-27a5acc55050)
+![QR VivaGym 2](https://github.com/user-attachments/assets/ebc0e628-fd1f-4986-a45e-3d399b98307f)
 
 Aplicación web ligera que te permite obtener tu código QR de acceso a VivaGym sin necesidad de instalar la oficial. Privacidad ante todo: sin rastreadores, sin anuncios, sin intermediarios. Solo tú y tu QR.
-
-![QR VivaGym 2](https://github.com/user-attachments/assets/ebc0e628-fd1f-4986-a45e-3d399b98307f)
 
 > 💡 **Iimportante:** Esta aplicación ha sido probada en España. Puedes usarla sin depender de la app oficial de VivaGym.
 
