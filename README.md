@@ -19,7 +19,7 @@ cd VivaGymQR
 
 2. Instala todas las dependencias:
 ```bash
-pnpm run install
+pnpm install
 ```
 
 3. Configura las variables de entorno:
