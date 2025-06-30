@@ -2,9 +2,6 @@ import { QRCodeCanvas } from "qrcode.react";
 import { useRef, useState } from "react";
 
 function App() {
-
-  // TODO: Separar logica y componentes
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [qrCode, setQrCode] = useState("");
@@ -14,6 +11,8 @@ function App() {
 
   const clientTokenRef = useRef(null);
   const clientTokenExpiryRef = useRef(0);
+
+  const API = import.meta.env.VITE_API_URL;
 
   const generateQR = async () => {
     if (!email || !password) {
@@ -25,7 +24,6 @@ function App() {
     setError("");
     setSuccess(false);
 
-    // Hay que darle una vuelta. No es muy eficiente.
     try {
       const now = Math.floor(Date.now() / 1000);
       let clientToken;
@@ -36,7 +34,7 @@ function App() {
       ) {
         clientToken = clientTokenRef.current;
       } else {
-        const clientRes = await fetch("/api/token", { method: "POST" });
+        const clientRes = await fetch(`${API}/api/token`, { method: "POST" });
         const { access_token, expires_at } = await clientRes.json();
 
         if (!access_token || !expires_at) {
@@ -48,7 +46,7 @@ function App() {
         clientTokenExpiryRef.current = expires_at;
       }
 
-      const userRes = await fetch("/api/login", {
+      const userRes = await fetch(`${API}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, clientToken }),
@@ -59,7 +57,7 @@ function App() {
 
       const userToken = loginData.access_token;
 
-      const qrRes = await fetch("/api/qr", {
+      const qrRes = await fetch(`${API}/api/qr`, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
@@ -156,7 +154,6 @@ function App() {
           </div>
           <p className="text-sm text-gray-300 break-all max-w-xs text-center">{qrCode}</p>
 
-          {/* TODO: Agregar la posibilidad de regerar QR sin volver a iniciar sesion */}
           <button
             onClick={reset}
             className="mt-4 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-6 rounded transition"
